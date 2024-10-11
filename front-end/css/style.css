@@ -23,7 +23,7 @@ a {
   justify-items: center;
   padding: 20px 20px;
 
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.151);
 }
 
 .nav-bar ul {
@@ -69,7 +69,7 @@ a {
   background-color: rgba(158, 160, 160, 0);
   height: 300px;
   width: 40%;
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(0, 0, 0, 0.19);
   a {
     display: block;
     margin-top: 5%;
@@ -187,4 +187,86 @@ a {
     border: none;
     border-radius: 5px;
   }
+}
+
+/* syart styling futures */
+
+.futures {
+  display: flex;
+  justify-content: space-between;
+
+  .child {
+    width: 49%;
+    height: 500px;
+    background-color: #acd4d2;
+  }
+}
+
+.futures .child0 {
+  height: 250px;
+  margin-bottom: 10px;
+  background-color: #322a2a;
+}
+
+.divided {
+  display: flex;
+  justify-content: space-between;
+  .child1 {
+    width: 49%;
+    height: 240px;
+    background-color: #36c32f;
+  }
+}
+
+/****************************************/
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 8%;
+}
+.footer div {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+.footer h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.footer p {
+  margin-bottom: 0.5rem;
+}
+.subscribe input {
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px 0 0 5px;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+}
+.subscribe button {
+  padding: 10px;
+  border: 1px solid gray;
+  border-left: none;
+  background-color: white;
+  color: black;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.app-download img {
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+}
+.social-icons a {
+  color: rgb(19, 16, 16);
+  margin-right: 10px;
+  text-decoration: none;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  color: gray;
 }
