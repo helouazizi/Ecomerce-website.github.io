@@ -229,7 +229,7 @@ a {
     margin: auto;
     height: 200px;
     text-align: center;
-    background-color: #36c32f;
+    background-color: #36c32f00;
   }
 }
 
@@ -259,7 +259,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0px 8%;
+  padding: 20px 8%;
   background-color: #322a2a;
   color: white;
 }
@@ -305,8 +305,21 @@ a {
 .footer-bottom {
   text-align: center;
   display: block;
-  margin-top: 20px;
-  color: rgb(132, 13, 13);
+padding: 20px 0px;
+  color: rgb(255, 255, 255);
   background-color: #322a2a;
   /*adds some */
+}
+
+.left-rifht {
+  padding: 10px 12px;
+  background-color: #898989;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.button-up {
+  text-align: end;
+  padding: 20px 8%;
 }
