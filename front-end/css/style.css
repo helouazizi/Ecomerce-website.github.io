@@ -218,6 +218,41 @@ a {
   }
 }
 
+/**** start styling brand section*/
+
+.brand {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10%;
+  .div {
+    width: 30%;
+    margin: auto;
+    height: 200px;
+    text-align: center;
+    background-color: #36c32f;
+  }
+}
+
+.brand .brand-cyrcle {
+  width: 60px;
+  height: 60px;
+  margin: 10px  auto;
+  border-radius: 50%;
+  background-color: #626d61;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #322a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 /****************************************/
 
 .footer {
@@ -225,6 +260,8 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0px 8%;
+  background-color: #322a2a;
+  color: white;
 }
 .footer div {
   flex: 1;
@@ -267,6 +304,8 @@ a {
 }
 .footer-bottom {
   text-align: center;
+  display: block;
   margin-top: 20px;
-  color: gray;
+  color: rgb(132, 13, 13);
+  background-color: #322a2a;
 }
