@@ -236,7 +236,7 @@ a {
 .brand .brand-cyrcle {
   width: 60px;
   height: 60px;
-  margin: 10px  auto;
+  margin: 10px auto;
   border-radius: 50%;
   background-color: #626d61;
   display: flex;
@@ -308,4 +308,5 @@ a {
   margin-top: 20px;
   color: rgb(132, 13, 13);
   background-color: #322a2a;
+  /*adds some */
 }
