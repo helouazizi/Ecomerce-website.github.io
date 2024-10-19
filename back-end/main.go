@@ -2,20 +2,20 @@
 package main
 
 import (
-	"Ecomerce/back-end/hundler"
+	handler "Ecomerce/hundler"
 	"fmt"
+	"log"
 	"net/http"
-	"os"
 )
 
 func main() {
-	dir, err := os.Getwd()
-	if err != nil {
-		fmt.Println("Error getting current directory:", err)
-	}
-	fmt.Println("Current working directory:", dir)
-	http.HandleFunc("/", hundler.HomeHundler)
-
+	http.HandleFunc("/", handler.HomeHandler)
+	http.HandleFunc("/contact", handler.ContactHandler)
+	http.HandleFunc("/account", handler.AccountHandler)
+	http.HandleFunc("/signin", handler.SignInHandler)
+	http.HandleFunc("/about", handler.AboutHandler)
+	http.HandleFunc("/css/", handler.CssHandler)
 	fmt.Println("server listnning  on port 8080 >>> http://localhost:8080")
-	http.ListenAndServe(":8080", nil)
+	log.Fatal(http.ListenAndServe(":8080", nil))
+
 }
