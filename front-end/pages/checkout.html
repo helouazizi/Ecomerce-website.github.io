@@ -13,10 +13,11 @@
     <header class="top-header">
         <h6>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h6>
     </header>
+   
+    <div>{{ template "header.html" . }}</div>
     <h1>checkout</h1>
-    <div>{{.Header}}</div>
     <div>{{.Checkout}}</div>
-    <footer>{{.Fouter}}</footer>
+    <div>{{ template "footer.html" . }}</div>
 </body>
 
 </html>

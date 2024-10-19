@@ -18,22 +18,27 @@ type Pages struct {
 	Cart    *template.Template
 }
 
+type Componnent struct {
+	Header string
+	Footer string
+}
+
 var page Pages
 
 // Initialize templates
 func init() {
-	page.Home = parseTemplate("../front-end/pages/home.html")
-	page.Error = parseTemplate("../front-end/pages/errors.html")
-	page.About = parseTemplate("../front-end/pages/about.html")
-	page.Account = parseTemplate("../front-end/pages/acount.html")
-	page.SignIn = parseTemplate("../front-end/pages/sign_in.html")
-	page.Cart = parseTemplate("../front-end/pages/cart.html")
-	page.Contact = parseTemplate("../front-end/pages/contact.html")
+	page.Home = parseTemplate("../front-end/pages/home.html", "../front-end/components/header.html", "../front-end/components/footer.html", "../front-end/components/brand.html")
+	page.Error = parseTemplate("../front-end/pages/errors.html", "../front-end/components/header.html", "../front-end/components/footer.html")
+	page.About = parseTemplate("../front-end/pages/about.html", "../front-end/components/header.html", "../front-end/components/footer.html", "../front-end/components/brand.html")
+	page.Account = parseTemplate("../front-end/pages/acount.html", "../front-end/components/header.html", "../front-end/components/footer.html")
+	page.SignIn = parseTemplate("../front-end/pages/sign_in.html", "../front-end/components/header.html", "../front-end/components/footer.html")
+	page.Cart = parseTemplate("../front-end/pages/cart.html", "../front-end/components/header.html", "../front-end/components/footer.html")
+	page.Contact = parseTemplate("../front-end/pages/contact.html", "../front-end/components/header.html", "../front-end/components/footer.html")
 }
 
 // Function to parse a template
-func parseTemplate(filename string) *template.Template {
-	tmpl, err := template.ParseFiles(filename)
+func parseTemplate(filename ...string) *template.Template {
+	tmpl, err := template.ParseFiles(filename...)
 	if err != nil {
 		log.Fatalf("Error parsing template file %s: %v", filename, err)
 	}
@@ -65,22 +70,48 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ContactHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		renderTemplate(w, page.Error, "405 METHOD NOT ALLOWED")
+		return
+		
+	}
 	renderTemplate(w, page.Contact, nil)
 }
 
 func AccountHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		renderTemplate(w, page.Error, "405 METHOD NOT ALLOWED")
+		return
+	}
 	renderTemplate(w, page.Account, nil)
 }
 
 func SignInHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		renderTemplate(w, page.Error, "405 METHOD NOT ALLOWED")
+		return
+	}
 	renderTemplate(w, page.SignIn, nil)
 }
 
 func CartHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		renderTemplate(w, page.Error, "405 METHOD NOT ALLOWED")
+		return
+	}
 	renderTemplate(w, page.Cart, nil)
 }
 
 func AboutHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		renderTemplate(w, page.Error, "405 METHOD NOT ALLOWED")
+		return
+	}
 	renderTemplate(w, page.About, nil)
 }
 
