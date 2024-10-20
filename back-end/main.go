@@ -9,7 +9,8 @@ import (
 )
 
 func main() {
-	http.Handle("/imges/", http.StripPrefix("/imges/", http.FileServer(http.Dir("../front-end/imges"))))
+	
+	
 	http.HandleFunc("/", handler.HomeHandler)
 	http.HandleFunc("/contact", handler.ContactHandler)
 	http.HandleFunc("/account", handler.AccountHandler)
