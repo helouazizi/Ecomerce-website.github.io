@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"path/filepath"
 )
 
 // Define your page templates
@@ -18,27 +19,31 @@ type Pages struct {
 	Cart    *template.Template
 }
 
-type Componnent struct {
-	Header string
-	Footer string
-}
+// Define the base directory for templates
+const templateBaseDir = "../front-end/pages/"
+const componentBaseDir = "../front-end/components/"
 
 var page Pages
 
 // Initialize templates
 func init() {
-	page.Home = parseTemplate("../front-end/pages/home.html", "../front-end/components/header.html", "../front-end/components/footer.html", "../front-end/components/brand.html")
-	page.Error = parseTemplate("../front-end/pages/errors.html", "../front-end/components/header.html", "../front-end/components/footer.html")
-	page.About = parseTemplate("../front-end/pages/about.html", "../front-end/components/header.html", "../front-end/components/footer.html", "../front-end/components/brand.html")
-	page.Account = parseTemplate("../front-end/pages/acount.html", "../front-end/components/header.html", "../front-end/components/footer.html")
-	page.SignIn = parseTemplate("../front-end/pages/sign_in.html", "../front-end/components/header.html", "../front-end/components/footer.html")
-	page.Cart = parseTemplate("../front-end/pages/cart.html", "../front-end/components/header.html", "../front-end/components/footer.html")
-	page.Contact = parseTemplate("../front-end/pages/contact.html", "../front-end/components/header.html", "../front-end/components/footer.html")
+	page.Home = parseTemplate("home.html")
+	page.Error = parseTemplate("errors.html")
+	page.About = parseTemplate("/about.html")
+	page.Account = parseTemplate("acount.html")
+	page.SignIn = parseTemplate("sign_in.html")
+	page.Cart = parseTemplate("cart.html")
+	page.Contact = parseTemplate("contact.html")
 }
 
 // Function to parse a template
-func parseTemplate(filename ...string) *template.Template {
-	tmpl, err := template.ParseFiles(filename...)
+func parseTemplate(filename string) *template.Template {
+	tmpl, err := template.ParseFiles(
+		filepath.Join(templateBaseDir, filename),
+		filepath.Join(componentBaseDir, "header.html"),
+		filepath.Join(componentBaseDir, "footer.html"),
+		filepath.Join(componentBaseDir, "brand.html"),
+	)
 	if err != nil {
 		log.Fatalf("Error parsing template file %s: %v", filename, err)
 	}
@@ -74,7 +79,7 @@ func ContactHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		renderTemplate(w, page.Error, "405 METHOD NOT ALLOWED")
 		return
-		
+
 	}
 	renderTemplate(w, page.Contact, nil)
 }
