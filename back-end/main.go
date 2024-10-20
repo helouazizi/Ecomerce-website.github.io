@@ -11,11 +11,12 @@ import (
 func loggingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		//log.Printf("Received request: %s %s", r.Method, r.URL.Path) // Log the request method and path
-		next.ServeHTTP(w, r)                                        // Call the next handler in the chain
+		next.ServeHTTP(w, r) // Call the next handler in the chain
 	})
 }
 
 func main() {
+	http.Handle("/imges/", http.StripPrefix("/imges/", http.FileServer(http.Dir("../front-end/imges"))))
 	http.Handle("/", loggingMiddleware(http.HandlerFunc(handler.HomeHandler)))
 	http.Handle("/contact", loggingMiddleware(http.HandlerFunc(handler.ContactHandler)))
 	http.Handle("/account", loggingMiddleware(http.HandlerFunc(handler.AccountHandler)))
