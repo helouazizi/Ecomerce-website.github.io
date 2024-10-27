@@ -1,4 +1,41 @@
-// front-end/static/scss/components/_header.scss
-body {
-    background-color: rgb(114, 144, 134);
+@import "../utilities/variables"; // front-end/static/scss/components/_header.scss
+/*  this stylinf for the navigation bar*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: $praimary-color;
+}
+li {
+  list-style: none;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.top-header {
+  background-color: rgb(0, 0, 0);
+  color: whitesmoke;
+  text-align: center;
+  padding: 5px;
+}
+
+.nav-bar {
+  background-color: rgba(84, 60, 60, 0);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 126px;
+  ul {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
