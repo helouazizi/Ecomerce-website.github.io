@@ -1,11 +1,11 @@
-<!-- Ecomerce-website.github.io/front-end/pages/checkout.html -->
+<!-- Ecomerce-website.github.io/front-end/pages/about.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>Ecomerce web page</title>
 </head>
 
@@ -13,10 +13,11 @@
     <header class="top-header">
         <h6>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h6>
     </header>
-   
+
     <div>{{ template "header.html" . }}</div>
-    <h1>checkout</h1>
-    <div>{{.Checkout}}</div>
+    <h1>about</h1>
+    <div>{{.About}}</div>
+    <div>{{ template "brand.html" . }}</div>
     <div>{{ template "footer.html" . }}</div>
 </body>
 

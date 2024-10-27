@@ -20,8 +20,8 @@ type Pages struct {
 }
 
 // Define the base directory for templates
-const templateBaseDir = "../front-end/pages/"
-const componentBaseDir = "../front-end/components/"
+const templateBaseDir = "pages/"
+const componentBaseDir = "components/"
 
 var page Pages
 
@@ -120,12 +120,17 @@ func AboutHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, page.About, nil)
 }
 
-func CssHandler(w http.ResponseWriter, r *http.Request) {
+func StaticHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		renderTemplate(w, page.Error, "405 METHOD NOT ALLOWED")
 		return
 	}
+	if r.URL.Path == "/static/" || r.URL.Path == "/static" {
+		w.WriteHeader(http.StatusNotFound)
+		renderTemplate(w, page.Error, "404  NOT FOUND")
+		return
+	}
+	http.StripPrefix("/static", http.FileServer(http.Dir("static"))).ServeHTTP(w, r)
 
-	http.ServeFile(w, r, "../front-end/css/style.css")
 }

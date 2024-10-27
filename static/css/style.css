@@ -1,3 +1,4 @@
+/* static/css/style.css */
 /* Ecomerce-website.github.io/front-end/css/style.css */
 * {
   margin: 0px;
@@ -374,17 +375,10 @@ a {
 /*****************************************************************/
 
 /* style the contasct  form */
-
-
 .contact_section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #a29797;
-  width: 100%;
-  height: 500px;
-}
-
-.info {
-  color: #b72525;
+  background-color: #ccc;
+  width: 90%;
+  div {
+    margin: auto;
+  }
 }

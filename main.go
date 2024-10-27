@@ -24,7 +24,7 @@ func main() {
 	http.Handle("/sign_in", loggingMiddleware(http.HandlerFunc(handler.SignInHandler)))
 	http.Handle("/cart", loggingMiddleware(http.HandlerFunc(handler.CartHandler)))
 	http.Handle("/about", loggingMiddleware(http.HandlerFunc(handler.AboutHandler)))
-	http.Handle("/css/style.css", loggingMiddleware(http.HandlerFunc(handler.CssHandler)))
+	http.Handle("/static/", loggingMiddleware(http.HandlerFunc(handler.StaticHandler)))
 	fmt.Println("server listnning  on port 8080 >>> http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 
